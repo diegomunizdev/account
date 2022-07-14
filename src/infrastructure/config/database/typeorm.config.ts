@@ -9,7 +9,7 @@ const DATABASE = {
   postgres: 'postgres',
 };
 
-export const typeOrmModule: TypeOrmModuleOptions = {
+const typeOrmModule: TypeOrmModuleOptions = {
   type: DATABASE[process.env.DB_TYPE],
   host: process.env.DB_HOST,
   port: +process.env.DB_PORT,
@@ -20,3 +20,5 @@ export const typeOrmModule: TypeOrmModuleOptions = {
   autoLoadEntities: true,
   synchronize: true,
 };
+
+export default typeOrmModule;

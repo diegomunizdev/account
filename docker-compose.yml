@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+  account:
+    build: .
+    container_name: account
+    restart: always
+    volumes:
+      - .:/usr/src/account
+    environment:
+      - DB_TYPE=postgres
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=postgres
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - micro-service
+
+networks:
+  micro-service:
+    name: micro-service
